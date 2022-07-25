@@ -1,5 +1,19 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
+
+@layer components {
+  .card {
+    @apply tw-mx-2 tw-my-2 hover:tw-drop-shadow-2xl hover:tw-cursor-pointer;
+    max-width: 230px;
+  }
+  .card-text {
+    min-height: 140px;
+  }
+  .sort-container {
+    min-width: 300px;
+  }
+  ul.el-menu.el-menu--vertical {
+    @apply tw-shadow-lg tw-border tw-rounded hover:tw-cursor-pointer
+  }
+}

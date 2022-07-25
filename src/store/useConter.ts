@@ -1,21 +1,24 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+import { gateway } from '../api/index';
 
-export const useCounterStore = defineStore("main", {
+export const useCounterStore = defineStore({
+  id: 'counter',
   state: () => ({
-    counter: 0,
+    moviesList: {},
   }),
   getters: {
-    dubbleCount: (state) => {
-      return state.counter*2
-    }
+    getResult: (state) => {
+      return state.moviesList;
+    },
   },
   actions: {
-    reset() {
-      this.counter = 0
+    async fetchTopRatedMovies(): Promise<void> {
+      try {
+        const res = await gateway('GET', 'movie/top_rated');
+        this.moviesList = res;
+      } catch (e) {
+        console.log(e);
+      }
     },
-    addOne() {
-      console.log(this.counter)
-      this.counter++
-    }
   },
-})
+});

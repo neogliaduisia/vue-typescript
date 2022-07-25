@@ -1,20 +1,16 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": [
-    "env.d.ts",
-    "**/*.d.ts",
-    "**/*.ts",
-    "**/*.vue"
-  ],
-  "exclude": [
-    "src/**/__tests__/*"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/**/*.spec.ts"],
   "compilerOptions": {
-    "composite": true,
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "sourceMap": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@shared/*": ["./shared/*"]
+      "@/*": ["src/*"]
     }
   }
 }
