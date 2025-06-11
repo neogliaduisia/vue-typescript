@@ -4,6 +4,7 @@
       :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
       class="image tw-rounded-xl tw-mr-6"
       width="350"
+      alt="poster"
     />
     <div class="tw-flex tw-flex-col tw-self-center">
       <div>

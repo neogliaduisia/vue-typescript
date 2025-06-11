@@ -11,6 +11,7 @@
       <img
         src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
         width="180"
+        alt="header-img"
       />
     </div>
     <div class="flex-grow" />
@@ -38,7 +39,7 @@
       class="search-item tw-my-2 tw-flex tw-items-center"
       @click="routeToMovie(res.id)"
     >
-      <img :src="`https://image.tmdb.org/t/p/w500/${res.poster_path}`" width="70" class="tw-mr-4" />
+      <img :src="`https://image.tmdb.org/t/p/w500/${res.poster_path}`" width="70" alt="poster" class="tw-mr-4" />
       <div>
         <h1 class="tw-text-xl tw-font-bold">
           {{ res.title }}
@@ -63,7 +64,6 @@
 
 <script setup lang="ts">
   import type { RoutesList } from './types/routes';
-  import type { GenresItem } from './types/genres';
   import type { Ref } from 'vue';
   import { searchMovies } from './api/films';
   import { ref, reactive } from 'vue';
@@ -86,7 +86,8 @@
 
   function handleRoute(path: string): void {
     routesList.map((item) => {
-      return (item.isShowMenu = false);
+      item.isShowMenu = false
+      return item;
     });
     router.push({ name: path });
   }

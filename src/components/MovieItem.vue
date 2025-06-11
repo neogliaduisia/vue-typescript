@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <el-card :body-style="{ padding: '0px' }" @click="selectItem(movie.id)">
-      <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="image" />
+      <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="poster" class="image" />
       <div class="tw-p-4 tw-flex tw-flex-col card-text">
         <el-progress
           :text-inside="true"
