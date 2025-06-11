@@ -23,8 +23,8 @@
       <el-menu-item
         v-for="(routeItem, idx) in route.routesList"
         :key="routeItem.name"
-        @click="handleRoute(routeItem.route)"
         :index="`${index}-${idx}`"
+        @click="handleRoute(routeItem.route)"
       >
         {{ routeItem.name }}
       </el-menu-item>
